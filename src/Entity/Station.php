@@ -33,10 +33,14 @@ class Station
     #[ORM\OneToMany(mappedBy: 'station', targetEntity: Piste::class)]
     private Collection $pistes;
 
+    #[ORM\OneToMany(mappedBy: 'station', targetEntity: Remontees::class)]
+    private Collection $remontees;
+
     public function __construct()
     {
         $this->remontés = new ArrayCollection();
         $this->pistes = new ArrayCollection();
+        $this->remontees = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,6 +150,36 @@ class Station
             // set the owning side to null (unless already changed)
             if ($piste->getStation() === $this) {
                 $piste->setStation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Remontees>
+     */
+    public function getRemontees(): Collection
+    {
+        return $this->remontees;
+    }
+
+    public function addRemontee(Remontees $remontee): self
+    {
+        if (!$this->remontees->contains($remontee)) {
+            $this->remontees->add($remontee);
+            $remontee->setStation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRemontee(Remontees $remontee): self
+    {
+        if ($this->remontees->removeElement($remontee)) {
+            // set the owning side to null (unless already changed)
+            if ($remontee->getStation() === $this) {
+                $remontee->setStation(null);
             }
         }
 

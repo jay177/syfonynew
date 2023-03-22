@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\RemontéesRepository;
+use App\Repository\RemonteesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: RemontéesRepository::class)]
-class Remontées
+#[ORM\Entity(repositoryClass: RemonteesRepository::class)]
+class Remontees
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,20 +17,20 @@ class Remontées
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $type = null;
 
     #[ORM\Column(nullable: true)]
     private ?bool $open = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $horaire = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $message = null;
 
-    #[ORM\ManyToOne(inversedBy: 'remontés')]
-    private ?Station $station = null;
+    #[ORM\ManyToOne(inversedBy: 'remontees')]
+    private ?station $station = null;
 
     public function getId(): ?int
     {
@@ -54,7 +54,7 @@ class Remontées
         return $this->type;
     }
 
-    public function setType(string $type): self
+    public function setType(?string $type): self
     {
         $this->type = $type;
 
@@ -78,7 +78,7 @@ class Remontées
         return $this->horaire;
     }
 
-    public function setHoraire(?string $horaire): self
+    public function setHoraire(string $horaire): self
     {
         $this->horaire = $horaire;
 
@@ -97,12 +97,12 @@ class Remontées
         return $this;
     }
 
-    public function getStation(): ?Station
+    public function getStation(): ?station
     {
         return $this->station;
     }
 
-    public function setStation(?Station $station): self
+    public function setStation(?station $station): self
     {
         $this->station = $station;
 
