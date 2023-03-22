@@ -26,7 +26,7 @@ class Piste
     private ?string $dificulté = null;
 
     #[ORM\ManyToOne(inversedBy: 'pistes')]
-    private ?station $station = null;
+    private ?Station $station = null;
 
     public function getId(): ?int
     {
@@ -81,12 +81,12 @@ class Piste
         return $this;
     }
 
-    public function getStation(): ?station
+    public function getStation(): ?Station
     {
         return $this->station;
     }
 
-    public function setStation(?station $station): self
+    public function setStation(?Station $station): self
     {
         $this->station = $station;
 

@@ -18,7 +18,7 @@ class GrandDomaine
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'station', targetEntity: station::class)]
+    #[ORM\OneToMany(mappedBy: 'station', targetEntity: Station::class)]
     private Collection $station;
 
     public function __construct()
@@ -44,14 +44,14 @@ class GrandDomaine
     }
 
     /**
-     * @return Collection<int, station>
+     * @return Collection<int, Station>
      */
     public function getStation(): Collection
     {
         return $this->station;
     }
 
-    public function addStation(station $station): self
+    public function addStation(Station $station): self
     {
         if (!$this->station->contains($station)) {
             $this->station->add($station);
@@ -61,7 +61,7 @@ class GrandDomaine
         return $this;
     }
 
-    public function removeStation(station $station): self
+    public function removeStation(Station $station): self
     {
         if ($this->station->removeElement($station)) {
             // set the owning side to null (unless already changed)

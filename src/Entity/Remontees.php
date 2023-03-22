@@ -30,7 +30,7 @@ class Remontees
     private ?string $message = null;
 
     #[ORM\ManyToOne(inversedBy: 'remontees')]
-    private ?station $station = null;
+    private ?Station $station = null;
 
     public function getId(): ?int
     {
@@ -97,12 +97,12 @@ class Remontees
         return $this;
     }
 
-    public function getStation(): ?station
+    public function getStation(): ?Station
     {
         return $this->station;
     }
 
-    public function setStation(?station $station): self
+    public function setStation(?Station $station): self
     {
         $this->station = $station;
 
