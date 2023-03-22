@@ -13,7 +13,7 @@ class StationFixtures extends Fixture
         for ($i = 1; $i <= 20; $i++) {
             $station = new Station();
             $station->setName($this->getStationName($i));
-            $station->setOpen($this->getStationOpen($i));
+            $station->setState($this->getStationOpen($i));
             $station->setSchedule($this->getStationSchedule($i));
             $station->setDifficulty($this->getStationDifficulty($i));
 
