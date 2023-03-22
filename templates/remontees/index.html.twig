@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Remontees index{% endblock %}
+
+{% block body %}
+    <h1>Remontees index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Open</th>
+                <th>Horaire</th>
+                <th>Message</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for remontee in remontees %}
+            <tr>
+                <td>{{ remontee.id }}</td>
+                <td>{{ remontee.name }}</td>
+                <td>{{ remontee.type }}</td>
+                <td>{{ remontee.open ? 'Yes' : 'No' }}</td>
+                <td>{{ remontee.horaire }}</td>
+                <td>{{ remontee.message }}</td>
+                <td>
+                    <a href="{{ path('app_remontees_show', {'id': remontee.id}) }}">show</a>
+                    <a href="{{ path('app_remontees_edit', {'id': remontee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_remontees_new') }}">Create new</a>
+{% endblock %}

@@ -27,9 +27,6 @@ class Station
     #[ORM\ManyToOne(inversedBy: 'station')]
     private ?GrandDomaine $station = null;
 
-    #[ORM\OneToMany(mappedBy: 'station', targetEntity: remontées::class)]
-    private Collection $remontés;
-
     #[ORM\OneToMany(mappedBy: 'station', targetEntity: Piste::class)]
     private Collection $pistes;
 
@@ -38,7 +35,6 @@ class Station
 
     public function __construct()
     {
-        $this->remontés = new ArrayCollection();
         $this->pistes = new ArrayCollection();
         $this->remontees = new ArrayCollection();
     }
@@ -96,35 +92,6 @@ class Station
         return $this;
     }
 
-    /**
-     * @return Collection<int, remontées>
-     */
-    public function getRemontés(): Collection
-    {
-        return $this->remontés;
-    }
-
-    public function addRemont(remontées $remont): self
-    {
-        if (!$this->remontés->contains($remont)) {
-            $this->remontés->add($remont);
-            $remont->setStation($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRemont(remontées $remont): self
-    {
-        if ($this->remontés->removeElement($remont)) {
-            // set the owning side to null (unless already changed)
-            if ($remont->getStation() === $this) {
-                $remont->setStation(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Piste>
