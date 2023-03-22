@@ -7,9 +7,8 @@ use App\Entity\Station;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
-class AppFixtures extends Fixture
+class RemontéesFixtures extends Fixture
 {
-
     public function load(ObjectManager $manager)
     {
         $station = new Station();
@@ -30,5 +29,4 @@ class AppFixtures extends Fixture
 
         $manager->flush();
     }
-
 }
