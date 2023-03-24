@@ -3,17 +3,146 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.last_name) }}
-    {{ form_row(registrationForm.first_name) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        body {
+            background-image: url("https://www.haute-maurienne-vanoise.com/content/uploads/sites/5/2022/12/valcenis_canopee.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        h2 {
+            color: white;
+        }
+
+        .containers {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+
+        .container-form {
+            position: relative;
+            width: 466px;
+            height: 700px;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: center;
+            background: rgba(46, 75, 106, 0.92);
+            box-shadow: -7px 12px 8px -2px rgba(0, 0, 0, 0.44);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+        }
+        .container-form .desc {
+            top: 30px;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 140px;
+        }
+        form hr {
+            color: white;
+            width: 100%;
+            margin-bottom: 45px;
+        }
+        form .form-group {
+            width: 100%;
+        }
+        form .form-group input {
+            width: 269px;
+            height: 47px;
+            border-radius: 40px;
+            padding: 20px;
+            border: none;
+        }
+        form label {
+            display: none;
+        }
+        form button {
+            width: 269px;
+            height: 47px;
+            border-radius: 40px;
+            border: none;
+            text-align: center;
+        }
+        form button:hover {
+            background: #61ACCF;
+            color: white;
+        }
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="containers">
+        <div class="logo">
+            <a href="/"><svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31.6221 71.9753C29.5705 71.9753 27.519 71.435 25.6912 70.3544L5.93088 58.6713C2.2717 56.5101 0 52.4809 0 48.1548V24.7923C0 20.4662 2.2717 16.437 5.93088 14.2758L25.6912 2.5963C29.3504 0.435023 33.8938 0.435023 37.553 2.5963L57.3133 14.2758C60.9724 16.437 63.2441 20.4662 63.2441 24.7923V48.1548C63.2441 52.4809 60.9724 56.5101 57.3133 58.6713L37.553 70.3544C35.7251 71.435 33.6736 71.9753 31.6221 71.9753ZM31.6221 3.40499C29.9829 3.40499 28.3438 3.83796 26.8795 4.70032L7.11916 16.3834C4.19391 18.1117 2.37655 21.3357 2.37655 24.7923V48.1548C2.37655 51.6114 4.19391 54.8354 7.11916 56.5637L26.8795 68.2432C29.8047 69.9715 33.4394 69.9715 36.3647 68.2432L56.125 56.5637C59.0502 54.8354 60.8676 51.6114 60.8676 48.1548V24.7923C60.8676 21.3357 59.0502 18.1117 56.125 16.3834L36.3647 4.7039C34.9038 3.83796 33.2612 3.40856 31.6221 3.40856V3.40499Z" fill="#61ACCF"/>
+                    <path d="M6.99707 47.457L13.7912 34.357L21.6443 37.8422L16.1677 47.4678L6.99707 47.457Z" fill="#61ACCF"/>
+                    <path d="M21.6445 37.8422L31.2626 18.4122L39.5106 33.3873L30.934 41.8105L21.6445 37.8422Z" fill="#61ACCF"/>
+                    <path d="M56.0448 47.4642L42.8445 29.9665L39.5068 33.3837L47.0174 47.4642H56.0448Z" fill="#61ACCF"/>
+                    <path d="M16.168 47.4571L21.6445 37.8423L30.9305 41.807L25.1814 47.4606L16.168 47.4571Z" fill="#DFEEF5"/>
+                    <path d="M23.8564 55.2863H25.0377V57.2364H26.8341V55.2863H28.0084V60.3316H26.8341V58.3672H25.0377V60.3316H23.8564V55.2863Z" fill="white"/>
+                    <path d="M29.3887 55.2863H30.9684L32.0658 58.657H32.0868L33.1842 55.2863H34.7709V60.3316H33.6105V57.376H33.5756C33.5337 57.5442 33.4777 57.7589 33.3904 58.0129L32.604 60.3316H31.5625L30.7762 58.0129C30.6853 57.7589 30.6259 57.5478 30.5909 57.376H30.556V60.3316H29.3887V55.2863Z" fill="white"/>
+                    <path d="M35.5498 55.2863H36.801L37.8565 58.3958C37.9054 58.5354 37.9543 58.6642 37.9753 58.8324H37.9963C38.0172 58.6785 38.0592 58.5354 38.1081 58.3958L39.1566 55.2863H40.4182L38.6568 60.3316H37.3112L35.5498 55.2863Z" fill="white"/>
+                    <path d="M25.1777 47.4571L39.5104 33.3873L47.0175 47.4642L25.1777 47.4571Z" fill="#003249"/>
+                </svg></a>
+        </div>
+        <div class="container-form">
+            <div class="desc">
+                <svg width="111" height="124" viewBox="0 0 111 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M55.1083 123.733C51.5331 123.733 47.9579 122.791 44.7725 120.908L10.3359 100.548C3.95893 96.7814 0 89.7597 0 82.2205V41.5062C0 33.967 3.95893 26.9454 10.3359 23.1789L44.7725 2.82487C51.1494 -0.941623 59.0673 -0.941623 65.4442 2.82487L99.8808 23.1789C106.258 26.9454 110.217 33.967 110.217 41.5062V82.2205C110.217 89.7597 106.258 96.7814 99.8808 100.548L65.4442 120.908C62.2588 122.791 58.6836 123.733 55.1083 123.733ZM55.1083 4.23418C52.2518 4.23418 49.3953 4.98873 46.8433 6.49158L12.4067 26.8518C7.3088 29.8638 4.14165 35.4823 4.14165 41.5062V82.2205C4.14165 88.2444 7.3088 93.863 12.4067 96.8749L46.8433 117.229C51.9412 120.241 58.2755 120.241 63.3734 117.229L97.81 96.8749C102.908 93.863 106.075 88.2444 106.075 82.2205V41.5062C106.075 35.4823 102.908 29.8638 97.81 26.8518L63.3734 6.49782C60.8275 4.98873 57.9649 4.24042 55.1083 4.24042V4.23418Z" fill="#61ACCF"/>
+                    <path d="M12.1934 81.0045L24.0336 58.1748L37.7193 64.2486L28.1753 81.0232L12.1934 81.0045Z" fill="#61ACCF"/>
+                    <path d="M37.7197 64.2486L54.4812 30.3876L68.8552 56.4849L53.9087 71.1642L37.7197 64.2486Z" fill="#61ACCF"/>
+                    <path d="M97.6706 81.017L74.6662 50.5234L68.8496 56.4787L81.9384 81.017H97.6706Z" fill="#61ACCF"/>
+                    <path d="M28.1768 81.0045L37.7208 64.2486L53.9037 71.158L43.8846 81.0107L28.1768 81.0045Z" fill="#DFEEF5"/>
+                    <path d="M41.5752 94.6487H43.6338V98.0473H46.7644V94.6487H48.8109V103.441H46.7644V100.018H43.6338V103.441H41.5752V94.6487Z" fill="white"/>
+                    <path d="M51.2158 94.6487H53.9688L55.8813 100.523H55.9178L57.8303 94.6487H60.5954V103.441H58.5733V98.2905H58.5124C58.4394 98.5836 58.3419 98.9577 58.1896 99.4005L56.8192 103.441H55.0042L53.6338 99.4005C53.4755 98.9577 53.3719 98.5898 53.311 98.2905H53.2501V103.441H51.2158V94.6487Z" fill="white"/>
+                    <path d="M61.9541 94.6487H64.1346L65.9739 100.068C66.0592 100.311 66.1445 100.535 66.181 100.828H66.2176C66.2541 100.56 66.3272 100.311 66.4125 100.068L68.2397 94.6487H70.4384L67.3687 103.441H65.0238L61.9541 94.6487Z" fill="white"/>
+                    <path d="M43.877 81.0045L68.8548 56.4849L81.9375 81.017L43.877 81.0045Z" fill="#003249"/>
+                </svg>
+
+                <h2>Register</h2>
+            </div>
+
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.last_name) }}
+            {{ form_row(registrationForm.first_name) }}
+            {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }}
+            <hr>
+            <button type="submit" class="btn">Register</button>
+            <a href="{{ path('app_login') }}">j’ai deja un compte</a>
+        {{ form_end(registrationForm) }}
+        </div>
+    </div>
 {% endblock %}
