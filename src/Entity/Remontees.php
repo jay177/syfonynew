@@ -32,6 +32,9 @@ class Remontees
     #[ORM\ManyToOne(inversedBy: 'remontees')]
     private ?Station $station = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $horairefermeture = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +108,18 @@ class Remontees
     public function setStation(?Station $station): self
     {
         $this->station = $station;
+
+        return $this;
+    }
+
+    public function getHorairefermeture(): ?string
+    {
+        return $this->horairefermeture;
+    }
+
+    public function setHorairefermeture(string $horairefermeture): self
+    {
+        $this->horairefermeture = $horairefermeture;
 
         return $this;
     }

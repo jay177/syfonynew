@@ -28,6 +28,12 @@ class Piste
     #[ORM\ManyToOne(inversedBy: 'pistes')]
     private ?Station $station = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Alerte = null;
+
+    #[ORM\Column]
+    private ?bool $AlpNord = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +95,30 @@ class Piste
     public function setStation(?Station $station): self
     {
         $this->station = $station;
+
+        return $this;
+    }
+
+    public function getAlerte(): ?string
+    {
+        return $this->Alerte;
+    }
+
+    public function setAlerte(?string $Alerte): self
+    {
+        $this->Alerte = $Alerte;
+
+        return $this;
+    }
+
+    public function isAlpNord(): ?bool
+    {
+        return $this->AlpNord;
+    }
+
+    public function setAlpNord(bool $AlpNord): self
+    {
+        $this->AlpNord = $AlpNord;
 
         return $this;
     }
