@@ -7,7 +7,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\PisteDeSki;
 
-class AppFixtures extends Fixture
+class Pistes extends Fixture
 {
     public function load(ObjectManager $manager)
     {
