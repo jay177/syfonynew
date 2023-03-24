@@ -5,16 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d98eee06-94c7-45ff-960e-6c09f74bdb6d" name="Changes" comment="">
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
 =======
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/migrations/Version20230322084120.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20230322103333.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/migrations/Version20230324075559.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Piste.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Piste.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Remontees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Remontees.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/Staion.php" beforeDir="false" />
@@ -166,8 +175,12 @@
 <<<<<<< Updated upstream
       <workItem from="1679649441853" duration="638000" />
 =======
+<<<<<<< Updated upstream
       <workItem from="1679641658811" duration="2733000" />
       <workItem from="1679645921245" duration="3401000" />
+=======
+      <workItem from="1679641658811" duration="7980000" />
+>>>>>>> Stashed changes
 >>>>>>> Stashed changes
 =======
       <workItem from="1679649441853" duration="2251000" />
