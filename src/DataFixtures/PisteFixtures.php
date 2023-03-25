@@ -7,11 +7,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Piste;
 
-<<<<<<< Updated upstream:src/DataFixtures/Pistes.php
-class Pistes extends Fixture
-=======
+
 class PisteFixtures extends Fixture
->>>>>>> Stashed changes:src/DataFixtures/PisteFixtures.php
+
 {
     public function load(ObjectManager $manager)
     {
