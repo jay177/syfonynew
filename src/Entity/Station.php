@@ -33,6 +33,9 @@ class Station
     #[ORM\OneToMany(mappedBy: 'station', targetEntity: Remontees::class)]
     private Collection $remontees;
 
+    #[ORM\Column(length: 255)]
+    private ?string $logo = null;
+
     public function __construct()
     {
         $this->pistes = new ArrayCollection();
@@ -156,6 +159,18 @@ class Station
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): self
+    {
+        $this->logo = $logo;
+
+        return $this;
     }
 
 

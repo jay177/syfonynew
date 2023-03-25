@@ -5,9 +5,13 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\PisteDeSki;
+use App\Entity\Piste;
 
+<<<<<<< Updated upstream:src/DataFixtures/Pistes.php
 class Pistes extends Fixture
+=======
+class PisteFixtures extends Fixture
+>>>>>>> Stashed changes:src/DataFixtures/PisteFixtures.php
 {
     public function load(ObjectManager $manager)
     {
@@ -18,13 +22,13 @@ class Pistes extends Fixture
         $couleurs = array('Vert', 'Bleu', 'Rouge', 'Noir');
 
         for ($i = 0; $i < 50; $i++) {
-            $piste = new PisteDeSki();
-            $piste->setNom($noms[array_rand($noms)]);
-            $piste->setOuverte(rand(0, 1) == 1 ? true : false);
+            $piste = new Piste();
+            $piste->setName($noms[array_rand($noms)]);
+            $piste->setOuvert(rand(0, 1) == 1 ? true : false);
             $piste->setHoraire(rand(8, 16) . 'h-' . rand(17, 22) . 'h');
-            $piste->setDifficulte($couleurs[array_rand($couleurs)]);
+            $piste->setDificulté($couleurs[array_rand($couleurs)]);
             $piste->setAlerte('Rien à signaler');
-            $piste->setAlpine(rand(0, 1) == 1 ? true : false);
+            $piste->setAlpNord(rand(0, 1) == 1 ? true : false);
 
             $manager->persist($piste);
         }
