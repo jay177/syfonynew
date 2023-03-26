@@ -1,13 +1,20 @@
-<div>
-    <h1>salut</h1>
-</div>
+{% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/galerie.css') }}">
+{% endblock %}
 
 {% block body %}
-    {% for galerie in galeries %}
-        <div class="galerie-item">
-            <p>{{ galerie.description }}</p>
-            <img src="{{ galerie.imageUrl }}" alt="{{ galerie.titre }}" />
-        </div>
-    {% endfor %}
+    <div class="galerie-container">
+        {% for galerie in galeries|slice(0, 9) %}
+            <div class="galerie-item">
+                <div class="image-container">
+                    <img src="{{ asset(galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
+                </div>
+                <div class="galerie-description">
+                    <p>{{ galerie.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
