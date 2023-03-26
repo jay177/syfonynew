@@ -6,7 +6,9 @@
 
     <div class="image-single">
         <div class="single_image_container">
-            <img src="{{ asset(images.imageUrl) }}" alt="{{ images.titre }}" />
+
+            <img src="{{ asset('uploads/galerie/' ~ images.imageUrl) }}" alt="{{ images.titre }}" />
+
         </div>
         <div class="image-description">
             <h2>{{ images.titre }}</h2>
