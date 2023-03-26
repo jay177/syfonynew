@@ -204,9 +204,73 @@
             transform: translateX(5px);
         }
 
+        .burgerRemontes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 33%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            color: #fff;
+            overflow-y: scroll;
+            display: none;
+        }
+        .burgerRemontes.active {
+            display: block;
+        }
+        .closeBurger {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        .remontesList {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .remonteeWrapper {
+
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .remonteeListLeft, .remonteeListRight {
+            display: flex;
+            gap: 10px;
+        }
+
 
     </style>
 
+    <div class="burgerRemontes">
+        <div class="closeBurger">
+            <img src="{{ asset('img/closeBtn.png') }}" alt="close">
+        </div>
+        <div class="remontesList">
+                {% for remontee in remontees %}
+                    <div class="remonteeWrapper">
+                        <div class="remonteeListLeft">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M4.2 3.5c0-.8.7-1.6 1.6-1.6c.9 0 1.6.7 1.6 1.6S6.6 5 5.8 5s-1.6-.7-1.6-1.5m17.8.4l-.5-.9l-8 4.1l.5.9l8-4.1m-1.2 16.4l.9.9c-.6.6-1.2 1-1.9 1.3s-1.5.5-2.3.5H2v-1.3h2.7l2.1-3.5L4.5 15l-.8-7.8c0-.9.8-1.7 1.7-1.7c.3 0 .6.1.8.2l3.5 2.6l2.3-.8l.8 1.6l-3.5 1.5c-.1-.1-1.6-1.2-2.7-2.1L7 12l5.3 4.5l1.7 5.2h3.5c.6 0 1.2-.1 1.8-.4c.6-.2 1.1-.6 1.5-1M7 21.7h5l-1.6-3.9l-2.3-1.9l1.2 2.5L7 21.7Z"/></svg>
+                            <p>{{ remontee.name }}</p>
+                            <p>{{ remontee.type }}</p>
+                        </div>
+                        <div class="remonteeListRight">
+                            <p>{{ remontee.horaire }}</p>
+                            {% if remontee.open == 1 %}
+                                <div class="colorcheck"></div>
+                            {% else %}
+                                <div class="colorchecked"></div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
 
 <header class="headerHomePage">
     <a href="/"><svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -487,4 +551,19 @@
 
 
     </section>
+    <script>
+
+        const open = document.querySelector('.heroLeftImgWrapper');
+        const burgerRemontes = document.querySelector('.burgerRemontes');
+        const closeBurger = document.querySelector('.closeBurger');
+
+        console.log(open)
+        open.addEventListener('click', () => {
+            burgerRemontes.classList.add('active');
+        });
+        closeBurger.addEventListener('click', () => {
+            burgerRemontes.classList.remove('active');
+        });
+    </script>
+
 {% endblock %}
