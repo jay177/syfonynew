@@ -4,179 +4,332 @@
 
 {% block body %}
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-        * {
+
+        body{
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
         }
-        .headerHomePage {
-            position: fixed;
-            width: 100%;
-            margin: 20px;
-            display: flex;
-            gap: 50px;
-        }
-
-        .navWrapper {
-            width: 100%;
-            padding-right: 50px;
-        }
-        .line {
-            width: 100%;
-            height: 1px;
-            background-color: #fff;
-            margin: 20px 0;
-        }
-        .navHome {
-            display: flex;
-            justify-content: flex-end;
-            width: 100%;
-            margin: 20px 0;
-            padding-right: 50px;
-            gap:40px;
-        }
-        .navHome a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        .navHome a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            background-image: url("https://static.savoie-mont-blanc.com/wp-content/uploads/external/8373992597499853dc5b241cd17d4a0d-14020941-1745x1163.jpg");
-            background-size: cover;
-            background-position: center;
+        .VCenpiste{
             height: 100vh;
-            padding-top: 250px;
-            padding-left: 20px;
-            padding-right: 20px;
-            display: flex;
         }
-        .heroLeft, .heroRight, .heroCenter {
-            width: 33%;
+        .docVC{
             display: flex;
             flex-direction: column;
-
-        }
-        .heroLeftImgWrapper {
-            width: 120px;
-            height: 120px;
-            display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(153, 153, 153, 0.26);
-            border-right: 2px solid #FFFFFF;
-            transform: translateX(-20px);
-            cursor: pointer;
-        }
-        .heroLeftImgWrapper img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-        }
-        .heroLeftLine {
-            margin-top: 70px;
-            width: 2px;
-            height: 150px;
-            background-color: #fff;
-        }
-        .heroCenter h1 {
-            font-weight: 800;
-            font-size: 70px;
-            text-align: center;
-            color: #fff;
-            max-width: 610px;
-        }
-        .heroRight {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 15px;
-            margin-top: 190px;
-        }
-        .heroRightTop {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .heroRightTop div {
-            height: 15px;
-            width: 2px;
-            background: #fff;
+            height: 40%;
 
-            border-radius: 5px;
         }
-        .heroRightTop div:nth-child(1) {
-            height: 100px;
-            width: 2px;
-            background: #FF0000;
-            border-radius: 5px;
+        .DiscCard{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            height: 60%;
+
         }
-        .heroRightBottom {
+        .titleVCP{
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #1e354e;
+        }
+        .contentVCP{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            color: #1e354e;
+            width: 45%;
+        }
+        .imgleft{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://www.neige-et-soleil.com/wp-content/uploads/2020/08/paysages-lac-du-mont-cenis-1-credit-photo-alicia-magnenot-1-1300x975.jpg");
+            background-size: cover;
+        }
+        .imgmid{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/6c/51/e4/les-alpages-de-val-cenis.jpg?w=700&h=-1&s=1");
+            background-size: cover;
+        }
+        .imgright{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://valcenisvanoise.fr/wp-content/uploads/2022/01/itineraire-des-villages-de-valcenis-800x600.jpg");
+            background-size: cover;
+        }
+        .under_text{
+            color: white;
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: normal;
+        }
+
+
+    </style>
+
+
+<header class="headerHomePage">
+    <a href="/"><svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M31.6221 71.9753C29.5705 71.9753 27.519 71.435 25.6912 70.3544L5.93088 58.6713C2.2717 56.5101 0 52.4809 0 48.1548V24.7923C0 20.4662 2.2717 16.437 5.93088 14.2758L25.6912 2.5963C29.3504 0.435023 33.8938 0.435023 37.553 2.5963L57.3133 14.2758C60.9724 16.437 63.2441 20.4662 63.2441 24.7923V48.1548C63.2441 52.4809 60.9724 56.5101 57.3133 58.6713L37.553 70.3544C35.7251 71.435 33.6736 71.9753 31.6221 71.9753ZM31.6221 3.40499C29.9829 3.40499 28.3438 3.83796 26.8795 4.70032L7.11916 16.3834C4.19391 18.1117 2.37655 21.3357 2.37655 24.7923V48.1548C2.37655 51.6114 4.19391 54.8354 7.11916 56.5637L26.8795 68.2432C29.8047 69.9715 33.4394 69.9715 36.3647 68.2432L56.125 56.5637C59.0502 54.8354 60.8676 51.6114 60.8676 48.1548V24.7923C60.8676 21.3357 59.0502 18.1117 56.125 16.3834L36.3647 4.7039C34.9038 3.83796 33.2612 3.40856 31.6221 3.40856V3.40499Z" fill="#61ACCF"/>
+            <path d="M6.99707 47.457L13.7912 34.357L21.6443 37.8422L16.1677 47.4678L6.99707 47.457Z" fill="#61ACCF"/>
+            <path d="M21.6445 37.8422L31.2626 18.4122L39.5106 33.3873L30.934 41.8105L21.6445 37.8422Z" fill="#61ACCF"/>
+            <path d="M56.0448 47.4642L42.8445 29.9665L39.5068 33.3837L47.0174 47.4642H56.0448Z" fill="#61ACCF"/>
+            <path d="M16.168 47.4571L21.6445 37.8423L30.9305 41.807L25.1814 47.4606L16.168 47.4571Z" fill="#DFEEF5"/>
+            <path d="M23.8564 55.2863H25.0377V57.2364H26.8341V55.2863H28.0084V60.3316H26.8341V58.3672H25.0377V60.3316H23.8564V55.2863Z" fill="white"/>
+            <path d="M29.3887 55.2863H30.9684L32.0658 58.657H32.0868L33.1842 55.2863H34.7709V60.3316H33.6105V57.376H33.5756C33.5337 57.5442 33.4777 57.7589 33.3904 58.0129L32.604 60.3316H31.5625L30.7762 58.0129C30.6853 57.7589 30.6259 57.5478 30.5909 57.376H30.556V60.3316H29.3887V55.2863Z" fill="white"/>
+            <path d="M35.5498 55.2863H36.801L37.8565 58.3958C37.9054 58.5354 37.9543 58.6642 37.9753 58.8324H37.9963C38.0172 58.6785 38.0592 58.5354 38.1081 58.3958L39.1566 55.2863H40.4182L38.6568 60.3316H37.3112L35.5498 55.2863Z" fill="white"/>
+            <path d="M25.1777 47.4571L39.5104 33.3873L47.0175 47.4642L25.1777 47.4571Z" fill="#003249"/>
+        </svg>
+    </a>
+    <div class="navWrapper">
+        <div class="line"></div>
+        <nav class="navHome">
+            <a href="/">Accueil</a>
+            <a href="/">Pistes</a>
+            <a href="/login">Se connecter</a>
+            <a href="/register">S'inscrire</a>
+        </nav>
+    </div>
+</header>
+<section class="hero">
+    <div class="heroLeft">
+        <div class="heroLeftImgWrapper">
+            <img src="{{ asset('img/ski-lift.png') }}" alt="ski lift logo">
+        </div>
+        <div class="heroLeftLine"></div>
+    </div>
+    <div class="heroCenter">
+        <h1>BIENVENUE A VAL-CENIS !</h1>
+    </div>
+    <div class="heroRight">
+        <div class="heroRightTop">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="heroRightBottom">
+            <a href="https://www.instagram.com/valcenis_officiel/?hl=fr">
+                <img src="{{ asset('img/logoInsta.png') }}" alt="logo instagram ">
+            </a>
+            <a href="https://www.facebook.com/valcenis.officiel/?locale=fr_FR">
+                <img src="{{ asset('img/logoFb.png') }}" alt="logo facebook ">
+            </a>
+            <a href="https://twitter.com/VAL_CENIS">
+                <img src="{{ asset('img/logoTwi.png') }}" alt="logo twitter ">
+            </a>
+        </div>
+    </div>
+
+    <section class="VCenpiste">
+        <div class="docVC">
+            <h1 class="titleVCP">Val-Cenis en piste</h1>
+            <p class="contentVCP">Le VC en piste est un événement qui se déroule sur une piste
+                de 400m. Il est ouvert à tous les licenciés de la FFA. Il
+                est organisé par le club de l'athlète. Il est composé de 3
+                épreuves : le 100m, le 400m et le 1000m. Il est possible de
+                participer à une ou plusieurs épreuves. Il est possible de participer
+                à un VC en piste sans être licencié à la FFA. Il est possible
+                de participer à un VC en piste sans être licencié à un club.</p>
+        </div>
+        <div class="DiscCard">
+            <div class="imgleft">
+                <h2 class="under_text"><a href="{{ path('app_galerie') }}">Gallerie Photo</a></h2>
+            </div>
+            <div class="imgmid">
+                <h2 class="under_text">Domaine Skiable</h2>
+            </div>
+            <div class="imgright">
+                <h2 class="under_text">Val-Cenis en été</h2>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .bandeau_info{
+            background-color: #485a75;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+
+        }
+        .left_info{
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            transform: translateX(5px);
+            width: 50%;
+            height: 80%;
+            justify-content: space-between;
+        }
+        .t280{
+            font-family: 'inter', sans-serif;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+            margin-left: 30%;
+        }
+        .t2800{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 2.6em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+            margin-left: 30%;
+        }
+        .t125{
+            font-family: '\"Roboto Mono\"', sans-serif;
+            text-align: left;
+            font-size: 2.1em;
+            font-weight: bold;
+            color: #61accf;
+            margin-top: 10%;
+            margin-left: 20%;
+            width: 30%;
+        }
+        .richesse{
+            font-family: '\"Roboto Mono\"', sans-serif;
+            text-align: left;
+            font-size: 2em;
+            font-weight: bold;
+            color: white   ;
+            margin-top: 10%;
+            width: 20%;
+        }
+        .right_info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+        .location{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+        }
+        .img_savoie{
+            background-image: url("https://cdn.discordapp.com/attachments/559439455388303360/1089538463365333194/image_1.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            width: 50%;
+            Height: 80%;
+        }
+        .join_info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+
+    </style>
+
+    <section class="bandeau_info">
+        <div class="left_info">
+            <h1 class="t280" style="font-size: 2em;">VAL-CENIS</h1>
+            <p class="t2800">monté jusqu'à 2800m</p>
+            <div class="join_info">
+                <p class="t125">plus de 125 km de piste et 25 remontées mécaniques</p>
+                <p class="richesse">une richesse naturel extraordinaire</p>
+            </div>
+
+            <p class="t2800">Au cœur de la Savoie dans les Alpes du Nord</p>
+
+        </div>
+        <div class="right_info">
+            <div class="img_savoie"></div>
+            <p class="location">location : val-cenis</p>
+
+        </div>
+    </section>
+    <style>
+        .list-piste{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 30px;
+
+        }
+        .title_piste{
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+
+            margin: 20px;
+            color: #0c4a6e;
+        }
+        .allpiste{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .cellule_piste{
+            display: flex;
+            flex-direction: row;
+            width: 60%;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: #0c4a6e  2px solid;
+        }
+        .Pname{
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            color: #0c4a6e;
+        }
+        .colorcheck{
+            width: 20px;
+            height: 20px;
+            background-color: #28e30d;
+            border-radius: 50%;
         }
 
     </style>
 
-    <header class="headerHomePage">
-        <a href="/"><svg width="64" height="72" viewBox="0 0 64 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M31.6221 71.9753C29.5705 71.9753 27.519 71.435 25.6912 70.3544L5.93088 58.6713C2.2717 56.5101 0 52.4809 0 48.1548V24.7923C0 20.4662 2.2717 16.437 5.93088 14.2758L25.6912 2.5963C29.3504 0.435023 33.8938 0.435023 37.553 2.5963L57.3133 14.2758C60.9724 16.437 63.2441 20.4662 63.2441 24.7923V48.1548C63.2441 52.4809 60.9724 56.5101 57.3133 58.6713L37.553 70.3544C35.7251 71.435 33.6736 71.9753 31.6221 71.9753ZM31.6221 3.40499C29.9829 3.40499 28.3438 3.83796 26.8795 4.70032L7.11916 16.3834C4.19391 18.1117 2.37655 21.3357 2.37655 24.7923V48.1548C2.37655 51.6114 4.19391 54.8354 7.11916 56.5637L26.8795 68.2432C29.8047 69.9715 33.4394 69.9715 36.3647 68.2432L56.125 56.5637C59.0502 54.8354 60.8676 51.6114 60.8676 48.1548V24.7923C60.8676 21.3357 59.0502 18.1117 56.125 16.3834L36.3647 4.7039C34.9038 3.83796 33.2612 3.40856 31.6221 3.40856V3.40499Z" fill="#61ACCF"/>
-                <path d="M6.99707 47.457L13.7912 34.357L21.6443 37.8422L16.1677 47.4678L6.99707 47.457Z" fill="#61ACCF"/>
-                <path d="M21.6445 37.8422L31.2626 18.4122L39.5106 33.3873L30.934 41.8105L21.6445 37.8422Z" fill="#61ACCF"/>
-                <path d="M56.0448 47.4642L42.8445 29.9665L39.5068 33.3837L47.0174 47.4642H56.0448Z" fill="#61ACCF"/>
-                <path d="M16.168 47.4571L21.6445 37.8423L30.9305 41.807L25.1814 47.4606L16.168 47.4571Z" fill="#DFEEF5"/>
-                <path d="M23.8564 55.2863H25.0377V57.2364H26.8341V55.2863H28.0084V60.3316H26.8341V58.3672H25.0377V60.3316H23.8564V55.2863Z" fill="white"/>
-                <path d="M29.3887 55.2863H30.9684L32.0658 58.657H32.0868L33.1842 55.2863H34.7709V60.3316H33.6105V57.376H33.5756C33.5337 57.5442 33.4777 57.7589 33.3904 58.0129L32.604 60.3316H31.5625L30.7762 58.0129C30.6853 57.7589 30.6259 57.5478 30.5909 57.376H30.556V60.3316H29.3887V55.2863Z" fill="white"/>
-                <path d="M35.5498 55.2863H36.801L37.8565 58.3958C37.9054 58.5354 37.9543 58.6642 37.9753 58.8324H37.9963C38.0172 58.6785 38.0592 58.5354 38.1081 58.3958L39.1566 55.2863H40.4182L38.6568 60.3316H37.3112L35.5498 55.2863Z" fill="white"/>
-                <path d="M25.1777 47.4571L39.5104 33.3873L47.0175 47.4642L25.1777 47.4571Z" fill="#003249"/>
-            </svg>
-        </a>
-        <div class="navWrapper">
-            <div class="line"></div>
-            <nav class="navHome">
-                <a href="/">Accueil</a>
-                <a href="/">Pistes</a>
-                <a href="/login">Se connecter</a>
-                <a href="/register">S'inscrire</a>
-            </nav>
-        </div>
-    </header>
-    <section class="hero">
-        <div class="heroLeft">
-            <div class="heroLeftImgWrapper">
-                <img src="{{ asset('img/ski-lift.png') }}" alt="ski lift logo">
-            </div>
-            <div class="heroLeftLine"></div>
-        </div>
-        <div class="heroCenter">
-            <h1>BIENVENUE A VAL-CENIS !</h1>
-        </div>
-        <div class="heroRight">
-            <div class="heroRightTop">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="heroRightBottom">
-                <a href="https://www.instagram.com/valcenis_officiel/?hl=fr">
-                    <img src="{{ asset('img/logoInsta.png') }}" alt="logo instagram ">
-                </a>
-                <a href="https://www.facebook.com/valcenis.officiel/?locale=fr_FR">
-                    <img src="{{ asset('img/logoFb.png') }}" alt="logo facebook ">
-                </a>
-                <a href="https://twitter.com/VAL_CENIS">
-                    <img src="{{ asset('img/logoTwi.png') }}" alt="logo twitter ">
-                </a>
-            </div>    
-        </div>
+
+
+    <section class="list-piste">
+        <h1 class="title_piste">Domaine de Val cenis</h1>
+        <ul class="allpiste">
+            {% for piste in pistes %}
+                <li class="cellule_piste">
+                    <h2 class="Pname">{{ piste.name }}</h2>
+                    <p class="Palpnord">Piste Alpine</p>
+                    <p class="Phoraire">{{ piste.horaire }}</p>
+                    <p class="Pniveau">{{ piste.dificulte }}</p>
+                    <p class="Palerte">{{ piste.alerte }}</p>
+                    <div class="colorcheck"></div>
+                </li>
+            {% endfor %}
+        </ul>
+
+
     </section>
 {% endblock %}

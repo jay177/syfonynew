@@ -33,7 +33,7 @@ class Station
     #[ORM\OneToMany(mappedBy: 'station', targetEntity: Remontees::class)]
     private Collection $remontees;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
 
     public function __construct()

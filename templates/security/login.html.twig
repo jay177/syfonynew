@@ -102,7 +102,16 @@
             text-decoration: none;
         }
 
+        .down{
+            flex-direction: column;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
 
+        .down .info{
+            margin-top: 12px;
+        }
     </style>
 
     <div class="containers">
@@ -142,21 +151,26 @@
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Password">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                 <hr>
+                <div class="down">
                 <button class="btn btn-lg btn-primary" type="submit">
                     Sign in
                 </button>
                 <a href="{{ path('app_register') }}">Je n'ai pas de compte</a>
+                    <div class="info">
+                {% if error %}
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                {% endif %}
+
+                {% if app.user %}
+
+                       <p> You are logged in as {{ app.user.userIdentifier }},</p> <a href="{{ path('app_logout') }}">Logout</a>
+
+                {% endif %}
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 {% endblock %}

@@ -2,14 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\User;
+use App\Entity\Remontees;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class User2CrudController extends AbstractCrudController
+class RemonteesCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return User::class;
+        return Remontees::class;
     }
 
     /*

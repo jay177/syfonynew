@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/galerie.css') }}">
+{% endblock %}
+
+{% block body %}
+    <a class="button-style" href="/">Retourner à la home page</a>
+
+    <div class="galerie-container">
+        {% for galerie in galeries|slice(0, 9) %}
+            <div class="galerie-item">
+                <a href="{{ path('app_image', {'id':galerie.id}) }}">
+                <div class="image-container">
+                    <img src="{{ asset('uploads/galerie/' ~ galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
+                </div>
+                <div class="galerie-description">
+                    <p>{{ galerie.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

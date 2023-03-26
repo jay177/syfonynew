@@ -26,7 +26,6 @@ class Remonteesfixtures extends Fixture
             $remontee->setHoraire(rand(8, 16) . 'h-' . rand(17, 22) . 'h');
             $remontee->setMessage('Rien à signaler');
             $remontee->setHorairefermeture(rand(16, 20) . 'h-' . rand(21, 23) . 'h');
-
             $manager->persist($remontee);
         }
 

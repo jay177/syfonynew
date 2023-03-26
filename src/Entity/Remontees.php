@@ -32,7 +32,7 @@ class Remontees
     #[ORM\ManyToOne(inversedBy: 'remontees')]
     private ?Station $station = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
     private ?string $horairefermeture = null;
 
     public function getId(): ?int
