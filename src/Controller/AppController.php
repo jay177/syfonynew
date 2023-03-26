@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\GalerieRepository;
+use App\Repository\PisteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,12 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     #[Route('/', name: 'app_app')]
-    public function index(): Response
+    public function index(PisteRepository $PisteRepository): Response
     {
+        $pistes = $PisteRepository->findAll();
 
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
-            //ghjhg
+            'pistes'=> $pistes,
         ]);
     }
 
@@ -27,8 +29,10 @@ class AppController extends AbstractController
         return $this->render('app/galerie.html.twig', [
             'galeries' => $galeries,
         ]);
+
     }
 
+<<<<<<< Updated upstream
     #[Route('/galerie/{id}', name: 'app_image')]
     public function image($id, GalerieRepository $galerieRepository): Response
     {
@@ -42,4 +46,7 @@ class AppController extends AbstractController
             'images' => $images,
         ]);
     }
+=======
+
+>>>>>>> Stashed changes
 }

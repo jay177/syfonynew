@@ -261,30 +261,19 @@
     <section class="list-piste">
         <h1 class="title_piste">Domaine de Val cenis</h1>
         <ul class="allpiste">
+            {% for piste in pistes %}
                 <li class="cellule_piste">
-                    <h2 class="Pname">bel air</h2>
+                    <h2 class="Pname">{{ piste.name }}</h2>
                     <p class="Palpnord">Piste Alpine</p>
-                    <p class="Phoraire">12h-17h</p>
-                    <p class="Pniveau">Rouge</p>
-                    <p class="Palerte">rien à signaler</p>
+                    <p class="Phoraire">{{ piste.horaire }}</p>
+                    <p class="Pniveau">{{ piste.difficulte }}</p>
+                    <p class="Palerte">{{ piste.alerte }}</p>
                     <div class="colorcheck"></div>
                 </li>
-        </ul>
-        <!--
-        <ul class="allpiste">
-                {% for article in articles %}
-                <li class="cellule_piste">
-                    <h2 class="Pname">{{ article.name }}</h2>
-                    <p class="Palpnord">Piste Alpine</p>
-                    <p class="Phoraire">{{ article.horaire }}</p>
-                    <p class="Pniveau">{{ article.difficulte }}</p>
-                    <p class="Palerte">{{ article.alerte }}</p>
-                    <div class="colorcheck"></div>
-                </li>
-                {% endfor %}
+            {% endfor %}
         </ul>
 
-        -->
+
 
     </section>
 {% endblock %}
