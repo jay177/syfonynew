@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acceuil{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
     <style>
@@ -297,8 +297,13 @@
         <nav class="navHome">
             <a href="/">Accueil</a>
             <a href="#listPist">Pistes</a>
-            <a href="/login">Se connecter</a>
-            <a href="/register">S'inscrire</a>
+            {% if not app.user %}
+                <a href="/login">Se connecter</a>
+                <a href="/register">S'inscrire</a>
+            {% endif %}
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Logout</a>
+            {% endif %}
         </nav>
     </div>
 </header>
