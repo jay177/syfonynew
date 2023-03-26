@@ -12,7 +12,7 @@
             <div class="galerie-item">
                 <a href="{{ path('app_image', {'id':galerie.id}) }}">
                 <div class="image-container">
-                    <img src="{{ asset(galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
+                    <img src="{{ asset('uploads/galerie/' ~ galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
                 </div>
                 <div class="galerie-description">
                     <p>{{ galerie.description }}</p>
