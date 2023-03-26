@@ -13,7 +13,9 @@ class AppController extends AbstractController
     #[Route('/', name: 'app_app')]
     public function index(PisteRepository $PisteRepository): Response
     {
+
         $pistes = $PisteRepository->findAll();
+
 
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
@@ -32,7 +34,7 @@ class AppController extends AbstractController
 
     }
 
-<<<<<<< Updated upstream
+
     #[Route('/galerie/{id}', name: 'app_image')]
     public function image($id, GalerieRepository $galerieRepository): Response
     {
@@ -46,7 +48,5 @@ class AppController extends AbstractController
             'images' => $images,
         ]);
     }
-=======
 
->>>>>>> Stashed changes
 }
