@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\GalerieRepository;
 use App\Repository\PisteRepository;
+use App\Repository\RemonteesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,18 +12,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     #[Route('/', name: 'app_app')]
-    public function index(PisteRepository $PisteRepository): Response
+    public function index(PisteRepository $PisteRepository, RemonteesRepository $remonteesRepository): Response
     {
 
         $pistes = $PisteRepository->findAll();
+        $remontees = $remonteesRepository->findAll();
 
 
         return $this->render('app/index.html.twig', [
             'controller_name' => 'AppController',
             'pistes'=> $pistes,
+            'remontees'=> $remontees,
         ]);
-    }
 
+    }
     #[Route('/galerie', name: 'app_galerie')]
     public function galerie(GalerieRepository $galerieRepository): Response
     {
@@ -48,5 +51,7 @@ class AppController extends AbstractController
             'images' => $images,
         ]);
     }
+
+
 
 }
