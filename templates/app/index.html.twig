@@ -4,6 +4,11 @@
 
 {% block body %}
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
         .VCenpiste{
             height: 100vh;
         }
@@ -101,5 +106,185 @@
                 <h2 class="under_text">Val-Cenis en été</h2>
             </div>
         </div>
+    </section>
+
+    <style>
+        .bandeau_info{
+            background-color: #485a75;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+
+        }
+        .left_info{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 80%;
+            justify-content: space-between;
+        }
+        .t280{
+            font-family: 'inter', sans-serif;
+            font-size: 1.7em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+            margin-left: 30%;
+        }
+        .t2800{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 2.6em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+            margin-left: 30%;
+        }
+        .t125{
+            font-family: '\"Roboto Mono\"', sans-serif;
+            text-align: left;
+            font-size: 2.1em;
+            font-weight: bold;
+            color: #61accf;
+            margin-top: 10%;
+            margin-left: 20%;
+            width: 30%;
+        }
+        .richesse{
+            font-family: '\"Roboto Mono\"', sans-serif;
+            text-align: left;
+            font-size: 2em;
+            font-weight: bold;
+            color: white   ;
+            margin-top: 10%;
+            width: 20%;
+        }
+        .right_info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+        .location{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            margin-top: 10%;
+        }
+        .img_savoie{
+            background-image: url("https://cdn.discordapp.com/attachments/559439455388303360/1089538463365333194/image_1.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+
+            width: 50%;
+            Height: 80%;
+        }
+        .join_info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+
+    </style>
+
+    <section class="bandeau_info">
+        <div class="left_info">
+            <h1 class="t280" style="font-size: 2em;">VAL-CENIS</h1>
+            <p class="t2800">monté jusqu'à 2800m</p>
+            <div class="join_info">
+                <p class="t125">plus de 125 km de piste et 25 remontées mécaniques</p>
+                <p class="richesse">une richesse naturel extraordinaire</p>
+            </div>
+
+            <p class="t2800">Au cœur de la Savoie dans les Alpes du Nord</p>
+
+        </div>
+        <div class="right_info">
+            <div class="img_savoie"></div>
+            <p class="location">location : val-cenis</p>
+
+        </div>
+    </section>
+    <style>
+        .list-piste{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 30px;
+
+        }
+        .title_piste{
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+
+            margin: 20px;
+            color: #0c4a6e;
+        }
+        .allpiste{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .cellule_piste{
+            display: flex;
+            flex-direction: row;
+            width: 60%;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: #0c4a6e  2px solid;
+        }
+        .Pname{
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: white;
+            color: #0c4a6e;
+        }
+        .colorcheck{
+            width: 20px;
+            height: 20px;
+            background-color: #28e30d;
+            border-radius: 50%;
+        }
+
+    </style>
+
+    <section class="list-piste">
+        <h1 class="title_piste">Domaine de Val cenis</h1>
+        <ul class="allpiste">
+                <li class="cellule_piste">
+                    <h2 class="Pname">bel air</h2>
+                    <p class="Palpnord">Piste Alpine</p>
+                    <p class="Phoraire">12h-17h</p>
+                    <p class="Pniveau">Rouge</p>
+                    <p class="Palerte">rien à signaler</p>
+                    <div class="colorcheck"></div>
+                </li>
+        </ul>
+        <!--
+        <ul class="allpiste">
+                {% for article in articles %}
+                <li class="cellule_piste">
+                    <h2 class="Pname">{{ article.name }}</h2>
+                    <p class="Palpnord">Piste Alpine</p>
+                    <p class="Phoraire">{{ article.horaire }}</p>
+                    <p class="Pniveau">{{ article.difficulte }}</p>
+                    <p class="Palerte">{{ article.alerte }}</p>
+                    <div class="colorcheck"></div>
+                </li>
+                {% endfor %}
+        </ul>
+
+        -->
+
     </section>
 {% endblock %}
