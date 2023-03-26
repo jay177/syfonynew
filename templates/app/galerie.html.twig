@@ -5,12 +5,14 @@
 {% endblock %}
 
 {% block body %}
+    <a class="button-style" href="/">Retourner à la home page</a>
+
     <div class="galerie-container">
         {% for galerie in galeries|slice(0, 9) %}
             <div class="galerie-item">
                 <a href="{{ path('app_image', {'id':galerie.id}) }}">
                 <div class="image-container">
-                    <img src="{{ asset(galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
+                    <img src="{{ asset('uploads/galerie/' ~ galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
                 </div>
                 <div class="galerie-description">
                     <p>{{ galerie.description }}</p>
