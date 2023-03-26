@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Piste;
+use App\Entity\Remontees;
 use App\Entity\Station;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -48,6 +49,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Pistes', 'fas fa-list', Piste::class);
         yield MenuItem::linkToCrud('Stations', 'fas fa-list', Station::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Remontées', 'fas fa-list', Remontees::class);
 
     }
 }
