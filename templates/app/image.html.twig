@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_galerie') }}">Retourner à la galerie</a>
+
+    <div class="image-single">
+        <div class="single_image_container">
+            <img src="{{ asset(images.imageUrl) }}" alt="{{ images.titre }}" />
+        </div>
+        <div class="image-description">
+            <h2>{{ images.titre }}</h2>
+            <p>{{ images.description }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -8,6 +8,7 @@
     <div class="galerie-container">
         {% for galerie in galeries|slice(0, 9) %}
             <div class="galerie-item">
+                <a href="{{ path('app_image', {'id':galerie.id}) }}">
                 <div class="image-container">
                     <img src="{{ asset(galerie.imageUrl) }}" alt="{{ galerie.titre }}" />
                 </div>

@@ -28,4 +28,18 @@ class AppController extends AbstractController
             'galeries' => $galeries,
         ]);
     }
+
+    #[Route('/galerie/{id}', name: 'app_image')]
+    public function image($id, GalerieRepository $galerieRepository): Response
+    {
+        $images = $galerieRepository ->find($id);
+
+        if (!$images){
+            throw $this->createNotFoundException('Image not found');
+        }
+
+        return $this->render('app/image.html.twig', [
+            'images' => $images,
+        ]);
+    }
 }
