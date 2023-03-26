@@ -24,7 +24,7 @@ class PisteFixtures extends Fixture
             $piste->setName($noms[array_rand($noms)]);
             $piste->setOuvert(rand(0, 1) == 1 ? true : false);
             $piste->setHoraire(rand(8, 16) . 'h-' . rand(17, 22) . 'h');
-            $piste->setDificulté($couleurs[array_rand($couleurs)]);
+            $piste->setDificulte($couleurs[array_rand($couleurs)]);
             $piste->setAlerte('Rien à signaler');
             $piste->setAlpNord(rand(0, 1) == 1 ? true : false);
 

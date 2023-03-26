@@ -23,7 +23,7 @@ class Piste
     private ?string $horaire = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $dificulté = null;
+    private ?string $dificulte = null;
 
     #[ORM\ManyToOne(inversedBy: 'pistes')]
     private ?Station $station = null;
@@ -75,14 +75,14 @@ class Piste
         return $this;
     }
 
-    public function getDificulté(): ?string
+    public function getDificulte(): ?string
     {
-        return $this->dificulté;
+        return $this->dificulte;
     }
 
-    public function setDificulté(?string $dificulté): self
+    public function setDificulte(?string $dificulte): self
     {
-        $this->dificulté = $dificulté;
+        $this->dificulte = $dificulte;
 
         return $this;
     }
