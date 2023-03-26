@@ -3,5 +3,103 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block body %}
+    <style>
+        .VCenpiste{
+            height: 100vh;
+        }
+        .docVC{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 40%;
 
+        }
+        .DiscCard{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+            height: 60%;
+
+        }
+        .titleVCP{
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #1e354e;
+        }
+        .contentVCP{
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+            color: #1e354e;
+            width: 45%;
+        }
+        .imgleft{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://www.neige-et-soleil.com/wp-content/uploads/2020/08/paysages-lac-du-mont-cenis-1-credit-photo-alicia-magnenot-1-1300x975.jpg");
+            background-size: cover;
+        }
+        .imgmid{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/6c/51/e4/les-alpages-de-val-cenis.jpg?w=700&h=-1&s=1");
+            background-size: cover;
+        }
+        .imgright{
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            border-radius: 5px;
+            height: 80%;
+            width: 20%;
+            background-image: url("https://valcenisvanoise.fr/wp-content/uploads/2022/01/itineraire-des-villages-de-valcenis-800x600.jpg");
+            background-size: cover;
+        }
+        .under_text{
+            color: white;
+            font-family: 'inter', sans-serif;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: normal;
+        }
+
+
+    </style>
+
+    <section class="VCenpiste">
+        <div class="docVC">
+            <h1 class="titleVCP">Val-Cenis en piste</h1>
+            <p class="contentVCP">Le VC en piste est un événement qui se déroule sur une piste
+                de 400m. Il est ouvert à tous les licenciés de la FFA. Il
+                est organisé par le club de l'athlète. Il est composé de 3
+                épreuves : le 100m, le 400m et le 1000m. Il est possible de
+                participer à une ou plusieurs épreuves. Il est possible de participer
+                à un VC en piste sans être licencié à la FFA. Il est possible
+                de participer à un VC en piste sans être licencié à un club.</p>
+        </div>
+        <div class="DiscCard">
+            <div class="imgleft">
+                <h2 class="under_text">Gallerie Photo</h2>
+            </div>
+            <div class="imgmid">
+                <h2 class="under_text">Domaine Skiable</h2>
+            </div>
+            <div class="imgright">
+                <h2 class="under_text">Val-Cenis en été</h2>
+            </div>
+        </div>
+    </section>
 {% endblock %}
