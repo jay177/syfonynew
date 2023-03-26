@@ -16,4 +16,12 @@ class AppController extends AbstractController
             //ghjhg
         ]);
     }
+
+    #[Route('/galerie', name: 'app_galerie')]
+    public function galerie(): Response
+    {
+        return $this->render('app/galerie.html.twig', [
+            'controller_name' => 'AppController',
+        ]);
+    }
 }
