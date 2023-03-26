@@ -232,12 +232,13 @@
         .allpiste{
             display: flex;
             flex-direction: column;
+            padding: 0px 30px ;
 
         }
         .cellule_piste{
             display: flex;
             flex-direction: row;
-            width: 60%;
+            width: 100%;
             align-items: center;
             justify-content: space-between;
             border-bottom: #0c4a6e  2px solid;
@@ -261,6 +262,14 @@
     <section class="list-piste">
         <h1 class="title_piste">Domaine de Val cenis</h1>
         <ul class="allpiste">
+            <li class="cellule_piste" >
+                <h2 class="Pname">Piste</h2>
+                <p class="Palpnord">type</p>
+                <p class="Phoraire">horaire</P>
+                <p class="Pniveau">niveau</p>
+                <p class="Palerte">alerte</p>
+                <p>ouver/fermer</p>
+            </li>
             {% for piste in pistes %}
                 <li class="cellule_piste">
                     <h2 class="Pname">{{ piste.name }}</h2>
