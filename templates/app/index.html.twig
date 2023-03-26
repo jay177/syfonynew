@@ -4,7 +4,15 @@
 
 {% block body %}
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
         body{
             margin: 0;
             padding: 0;
@@ -82,13 +90,7 @@
             font-weight: normal;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+
         .headerHomePage {
             position: fixed;
             width: 100%;
@@ -223,7 +225,7 @@
         <div class="line"></div>
         <nav class="navHome">
             <a href="/">Accueil</a>
-            <a href="/">Pistes</a>
+            <a href="#listPist">Pistes</a>
             <a href="/login">Se connecter</a>
             <a href="/register">S'inscrire</a>
         </nav>
@@ -409,6 +411,7 @@
             display: flex;
             flex-direction: column;
             padding: 0px 30px ;
+            gap: 15px;
 
         }
         .cellule_piste{
@@ -433,12 +436,19 @@
             background-color: #28e30d;
             border-radius: 50%;
         }
+        .colorchecked{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
 
     </style>
 
 
 
-    <section class="list-piste">
+    <section class="list-piste" id="listPist">
 
         <h1 class="title_piste">Domaine de Val cenis</h1>
 
@@ -454,11 +464,23 @@
             {% for piste in pistes %}
                 <li class="cellule_piste">
                     <h2 class="Pname">{{ piste.name }}</h2>
-                    <p class="Palpnord">Piste Alpine</p>
+
+                    {% if piste.AlpNord == 1 %}
+                        <p class="Palpnord">Piste Alpine</p>
+                    {% else %}
+                        <p class="Palpnord">Piste Nordique</p>
+                    {% endif %}
+
                     <p class="Phoraire">{{ piste.horaire }}</p>
                     <p class="Pniveau">{{ piste.dificulte }}</p>
                     <p class="Palerte">{{ piste.alerte }}</p>
-                    <div class="colorcheck"></div>
+
+                    {% if piste.ouvert == 1 %}
+                        <div class="colorcheck"></div>
+                    {% else %}
+                        <div class="colorchecked"></div>
+                    {% endif %}
+
                 </li>
             {% endfor %}
         </ul>
