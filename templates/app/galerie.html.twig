@@ -1,3 +1,13 @@
 <div>
     <h1>salut</h1>
 </div>
+
+
+{% block body %}
+    {% for galerie in galeries %}
+        <div class="galerie-item">
+            <p>{{ galerie.description }}</p>
+            <img src="{{ galerie.imageUrl }}" alt="{{ galerie.titre }}" />
+        </div>
+    {% endfor %}
+{% endblock %}

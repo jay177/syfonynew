@@ -9,3 +9,6 @@
 /vendor/
 .Ds_Store
 ###< symfony/framework-bundle ###
+
+public/uploads/galerie
+!public/uploads/galerie/.gitkeep
